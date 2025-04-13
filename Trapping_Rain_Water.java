@@ -1,9 +1,5 @@
-class Main {
-  public static void main(String[] args) {
-    System.out.println(trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
-  }
-
-  public static int trap(int[] height) {
+class Solution {
+    public static int trap(int[] height) {
         int len = height.length;
 
         if(len<3) return 0;
@@ -14,17 +10,21 @@ class Main {
             cur = i + 1;
             if(maxL > height[cur]) {
               total += maxL - height[cur];
-              maxL = height[cur];
+            }
+            else {
+                maxL = height[cur];
             }
              
-            i++;
+            ++i;
             continue;
           }
 
           cur = j - 1;
           if(maxR > height[cur]) {
               total += maxR - height[cur];
-              maxR = height[cur];
+            }
+            else {
+                maxR = height[cur];
             }
              
           --j;
